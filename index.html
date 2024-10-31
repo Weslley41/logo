@@ -27,14 +27,39 @@
       <button slot="ar-button" class="hidden">Native AR</button>
     </model-viewer>
 
-    <a-scene embedded arjs vr-mode-ui="false" id="content-ar" class="hidden">
+    <a-scene
+      embedded
+      arjs
+      vr-mode-ui="false"
+      shadow="type: pcfsoft"
+      id="content-ar"
+      class="hidden"
+    >
+      <a-light
+        type="directional"
+        position="0 -4 4"
+        intensity="0.5"
+        castShadow="true"
+      ></a-light>
+      <a-light type="ambient" intensity="0.5"></a-light>
+
       <a-marker preset="hiro">
         <a-entity
           position="0 0 0"
           scale="0.5 0.5 0.5"
           gltf-model="url(Weslley41.glb)"
+          shadow="cast: true; receive: true"
         ></a-entity>
       </a-marker>
+
+      <a-plane
+        rotation="-50 0 0"
+        width="10"
+        height="10"
+        color="#7BC8A4"
+        shadow="receive: true"
+      ></a-plane>
+
       <a-entity camera></a-entity>
     </a-scene>
 
